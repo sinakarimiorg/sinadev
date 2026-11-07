@@ -18,7 +18,7 @@ type Props = { photoCaption: string; photoAlt: string };
 /** Circular portrait with a pulsing border, halo and an orbit of tech chips. */
 export function PhotoOrbit({ photoCaption, photoAlt }: Props) {
   return (
-    <div dir="ltr" className="relative aspect-square w-[460px] max-w-full">
+    <div dir="ltr" className="relative aspect-square w-115 max-w-full">
       <div
         aria-hidden="true"
         className="absolute inset-[8%] rounded-full"
@@ -30,7 +30,7 @@ export function PhotoOrbit({ photoCaption, photoAlt }: Props) {
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-full border border-dashed border-white/[0.18]"
+        className="absolute inset-0 rounded-full border border-dashed border-white/18"
         style={{ animation: "spin-slow 44s linear infinite" }}
       >
         {chips.map((chip) => (
@@ -49,7 +49,7 @@ export function PhotoOrbit({ photoCaption, photoAlt }: Props) {
         className="absolute inset-[12%] rounded-full border border-lime/20"
         style={{ animation: "spin-rev 28s linear infinite" }}
       >
-        <span className="absolute left-1/2 top-0 -ms-[5px] -mt-[5px] size-2.5 rounded-full bg-lime shadow-[0_0_16px_#d9f99d]" />
+        <span className="absolute left-1/2 top-0 -ms-1.25 -mt-1.25 size-2.5 rounded-full bg-lime shadow-[0_0_16px_#d9f99d]" />
       </div>
 
       <div
@@ -64,7 +64,7 @@ export function PhotoOrbit({ photoCaption, photoAlt }: Props) {
       />
 
       <div
-        className="absolute inset-[21%] flex flex-col items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lime/55 bg-gradient-to-br from-[#1b1b22] to-[#0b0b0f] shadow-[0_0_60px_rgba(217,249,157,0.18),inset_0_0_40px_rgba(0,0,0,0.5)]"
+        className="absolute inset-[21%] flex flex-col items-center justify-center gap-2 overflow-hidden rounded-full border-2 border-lime/55 bg-linear-to-br from-[#1b1b22] to-[#0b0b0f] shadow-[0_0_60px_rgba(217,249,157,0.18),inset_0_0_40px_rgba(0,0,0,0.5)]"
         style={{ animation: "floaty 8s ease-in-out infinite" }}
       >
         {site.photo ? (

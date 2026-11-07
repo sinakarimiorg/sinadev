@@ -95,7 +95,7 @@ export function CodeEditor({ t }: { t: Dictionary["code"] }) {
   }, [tab, range, typed]);
 
   return (
-    <section className="pb-6 pt-[150px]">
+    <section className="pb-6 pt-37.5">
       <Tag>{t.tag}</Tag>
 
       <Reveal className="mt-7">

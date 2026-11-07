@@ -81,7 +81,7 @@ export function CommandPalette({ open, onClose, t, hrefFor }: Props) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-start justify-center bg-black/60 px-4 pt-[12vh] backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-start justify-center bg-black/60 px-4 pt-[12vh] backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -92,7 +92,7 @@ export function CommandPalette({ open, onClose, t, hrefFor }: Props) {
             role="dialog"
             aria-modal="true"
             aria-label={t.title}
-            className="w-full max-w-[560px] overflow-hidden rounded-[20px] border border-zinc-800 bg-panel shadow-[0_40px_90px_rgba(0,0,0,0.6),0_0_60px_rgba(217,249,157,0.08)]"
+            className="w-full max-w-140 overflow-hidden rounded-[20px] border border-zinc-800 bg-panel shadow-[0_40px_90px_rgba(0,0,0,0.6),0_0_60px_rgba(217,249,157,0.08)]"
             initial={{ opacity: 0, y: 14, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.98 }}

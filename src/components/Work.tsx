@@ -2,10 +2,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useId, useState } from "react";
-import { site } from "@/content/site";
+import { displayUrl, site } from "@/content/site";
 import type { Dictionary } from "@/dictionaries";
 import { ease } from "@/lib/motion";
 import { pad, type Locale } from "@/lib/i18n";
+import { BrowserMock } from "./BrowserMock";
 import { Reveal } from "./Reveal";
 import { Tag } from "./Tag";
 
@@ -14,7 +15,7 @@ export function Work({ t, locale }: { t: Dictionary["work"]; locale: Locale }) {
   const uid = useId();
 
   return (
-    <section id="work" className="pb-6 pt-[150px]">
+    <section id="work" className="pb-6 pt-37.5">
       <Tag>{t.tag}</Tag>
       <h2 className="mt-3.5 text-[clamp(30px,4.2vw,52px)] font-semibold leading-tight rtl:tracking-normal ltr:tracking-[-0.03em]">
         {t.title}
@@ -36,9 +37,8 @@ export function Work({ t, locale }: { t: Dictionary["work"]; locale: Locale }) {
               >
                 <span className="font-mono text-sm text-mute">{pad(i + 1, locale)}</span>
                 <span
-                  className={`acc-title min-w-0 flex-1 text-[clamp(24px,3.6vw,44px)] font-semibold leading-snug ${
-                    isOpen ? "is-on" : ""
-                  }`}
+                  className={`acc-title min-w-0 flex-1 text-[clamp(24px,3.6vw,44px)] font-semibold leading-snug ${isOpen ? "is-on" : ""
+                    }`}
                 >
                   {item.name}
                 </span>
@@ -71,8 +71,8 @@ export function Work({ t, locale }: { t: Dictionary["work"]; locale: Locale }) {
                     transition={{ duration: 0.45, ease }}
                     className="overflow-hidden"
                   >
-                    <div className="flex flex-wrap items-end justify-between gap-6 px-1 pb-9">
-                      <div className="max-w-[560px]">
+                    <div className="flex flex-wrap items-center gap-x-12 gap-y-8 px-1 pb-9">
+                      <div className="min-w-0 flex-[1_1_320px]">
                         {i === 0 && (
                           <div className="mb-3 font-mono text-xs text-lime">{t.featured}</div>
                         )}
@@ -90,19 +90,27 @@ export function Work({ t, locale }: { t: Dictionary["work"]; locale: Locale }) {
                             </span>
                           </p>
                         )}
+                        {project && project.href !== "#" && (
+                          <a
+                            href={project.href}
+                            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                            className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl border border-zinc-700 px-6 text-[15px] font-medium transition-colors hover:border-lime hover:text-lime"
+                          >
+                            {t.view}
+                            <span aria-hidden="true" className="rtl:-scale-x-100">
+                              →
+                            </span>
+                          </a>
+                        )}
                       </div>
-                      {project && project.href !== "#" && (
-                        <a
-                          href={project.href}
-                          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                          className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-zinc-700 px-6 text-[15px] font-medium transition-colors hover:border-lime hover:text-lime"
-                        >
-                          {t.view}
-                          <span aria-hidden="true" className="rtl:-scale-x-100">
-                            →
-                          </span>
-                        </a>
-                      )}
+
+                      <div className="min-w-0 flex-[1_1_320px] md:max-w-130">
+                        <BrowserMock
+                          image={project?.image ?? null}
+                          alt={item.name}
+                          url={external ? displayUrl(project.href) : "localhost:3000"}
+                        />
+                      </div>
                     </div>
                   </motion.div>
                 )}

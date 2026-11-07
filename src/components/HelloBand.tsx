@@ -49,7 +49,7 @@ export function HelloBand() {
     });
 
   return (
-    <div ref={ref} className="relative mt-[130px] overflow-hidden py-10">
+    <div ref={ref} className="relative mt-32.5 overflow-hidden py-10">
       <div className="band -mx-10 -rotate-2 overflow-hidden bg-lime py-5 text-lime-ink">
         <motion.div style={reduce ? undefined : { x: shift }}>
           <div dir="ltr" className="band-track flex w-max">

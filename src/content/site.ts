@@ -31,16 +31,15 @@ export const site = {
     "Redux",
     "Tailwind",
     "Bootstrap",
-    "Framer Motion",
     "Node.js",
     "Mongoose",
   ],
 
   /** Non-translated data for the project list, in the same order as the dictionary. */
   projects: [
-    { href: "https://www.kiwitech.ir/", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO" },
-    { href: "#", stack: "[Stack]" },
-    { href: "#", stack: "[Stack]" },
+    { href: "#", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO", image: "/projects/kiwitech.png" as string | null },
+    { href: "#", stack: "JavaScript · React · Tailwind Css · RTL", image: "/projects/moboland.png" as string | null },
+    { href: "#", stack: "[Stack]", image: "/projects/coffee.png" as string | null },
   ],
 
   /**

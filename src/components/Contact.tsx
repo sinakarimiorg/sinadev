@@ -39,7 +39,7 @@ export function Contact({ t }: { t: Dictionary["contact"] }) {
   ];
 
   return (
-    <section id="contact" className="pb-24 pt-[150px]">
+    <section id="contact" className="pb-24 pt-37.5">
       <Tag>{t.tag}</Tag>
       <Reveal className="mt-6">
         <div
@@ -56,10 +56,10 @@ export function Contact({ t }: { t: Dictionary["contact"] }) {
             style={{ background: spotlight }}
           />
           <div className="relative">
-            <h2 className="max-w-[760px] text-[clamp(30px,4.6vw,60px)] font-semibold leading-tight rtl:tracking-normal ltr:tracking-[-0.03em]">
+            <h2 className="max-w-190 text-[clamp(30px,4.6vw,60px)] font-semibold leading-tight rtl:tracking-normal ltr:tracking-[-0.03em]">
               {t.title}
             </h2>
-            <p className="mt-5 max-w-[540px] text-[17px] leading-loose text-soft">{t.sub}</p>
+            <p className="mt-5 max-w-135 text-[17px] leading-loose text-soft">{t.sub}</p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3">
               <button

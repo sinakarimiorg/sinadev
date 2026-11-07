@@ -18,7 +18,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease }}
       >
-        <span className="mb-6 inline-flex min-h-[34px] items-center gap-2.5 rounded-full border border-lime/30 bg-lime/5 px-3.5 text-[13px] text-lime">
+        <span className="mb-6 inline-flex min-h-8.5 items-center gap-2.5 rounded-full border border-lime/30 bg-lime/5 px-3.5 text-[13px] text-lime">
           <span
             aria-hidden="true"
             className="size-2 rounded-full bg-lime"
@@ -34,7 +34,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
           {t.name}
         </h1>
 
-        <div className="mt-[18px] flex min-h-11 items-center font-mono text-[clamp(17px,2.2vw,24px)] text-zinc-200 rtl:font-sans">
+        <div className="mt-4.5 flex min-h-11 items-center font-mono text-[clamp(17px,2.2vw,24px)] text-zinc-200 rtl:font-sans">
           <span aria-hidden="true" className="me-2.5 text-mute">
             &gt;
           </span>
@@ -43,13 +43,13 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
           <span className="sr-only">{t.roles[0]}</span>
         </div>
 
-        <p className="mt-[18px] max-w-[520px] text-lg leading-[1.95] text-soft">{t.sub}</p>
+        <p className="mt-4.5 max-w-130 text-lg leading-[1.95] text-soft">{t.sub}</p>
 
-        <div className="mt-[34px] flex flex-wrap gap-3">
+        <div className="mt-8.5 flex flex-wrap gap-3">
           <Magnetic>
             <a
               href="#work"
-              className="inline-flex min-h-12 items-center rounded-xl bg-lime px-[26px] text-[15px] font-semibold text-lime-ink"
+              className="inline-flex min-h-12 items-center rounded-xl bg-lime px-6.5 text-[15px] font-semibold text-lime-ink"
             >
               {t.cta1}
             </a>
@@ -57,7 +57,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
           <Magnetic>
             <a
               href="#contact"
-              className="inline-flex min-h-12 items-center rounded-xl border border-zinc-700 px-[26px] text-[15px] font-medium transition-colors hover:border-lime hover:text-lime"
+              className="inline-flex min-h-12 items-center rounded-xl border border-zinc-700 px-6.5 text-[15px] font-medium transition-colors hover:border-lime hover:text-lime"
             >
               {t.cta2}
             </a>
