@@ -65,7 +65,7 @@ const fa: Dictionary = {
       },
       {
         name: "فروشگاه قهوه",
-        tag: "Html 5 · Css · JavaScript · Tailwind Css",
+        tag: "Html 5 · Css · JavaScript · Tailwind Css · mongoose",
         desc: "پروژه تمرینی برای تقویت مهارت های استایل دهی و تمیزی کد",
       },
     ],
