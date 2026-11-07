@@ -65,7 +65,7 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} dir={dirOf(locale)}>
-            <body>
+            <body suppressHydrationWarning>
                 <Motion>
                     <ScrollProgress />
                     <CursorGlow />

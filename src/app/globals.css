@@ -1,26 +1,352 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------- Design tokens (generates bg-ink, text-lime, border-line, ...) ---------- */
+@theme {
+  --color-ink: #09090b;
+  --color-panel: #101013;
+  --color-line: #1f1f25;
+  --color-lime: #d9f99d;
+  --color-lime-ink: #14210a;
+  --color-mute: #8b8b96;
+  --color-soft: #b4b4bd;
+  --color-body: #d4d4d8;
+
+  --font-sans: "Inter Variable", "Vazirmatn Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Persian pages use Vazirmatn first */
+html[dir="rtl"] {
+  --font-sans: "Vazirmatn Variable", "Inter Variable", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- Base ---------- */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-lime-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes marq {
+  to { transform: translateX(-50%); }
+}
+@keyframes band {
+  to { transform: translateX(-50%); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(217, 249, 157, 0.55); }
+  50% { opacity: 0.55; box-shadow: 0 0 0 7px rgba(217, 249, 157, 0); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-rev {
+  to { transform: rotate(-360deg); }
+}
+@keyframes ping-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.45); opacity: 0; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes bar {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes glow-rot {
+  to { rotate: 360deg; }
+}
+
+/* ---------- Section tag: "// about.md" ---------- */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--color-mute);
+}
+
+/* ---------- Header nav link ---------- */
+.nav-link {
+  position: relative;
+  color: var(--color-soft);
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 8px;
+  height: 1px;
+  background: var(--color-lime);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s;
+}
+.nav-link:hover {
+  color: var(--color-lime);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Typing cursor ---------- */
+.cursor-bar {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-inline-start: 3px;
+  vertical-align: text-bottom;
+  background: var(--color-lime);
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ---------- Orbit chip ---------- */
+.orb {
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 249, 157, 0.25);
+  background: rgba(9, 9, 11, 0.9);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #e4e4e7;
+  /* counter-rotate so the label stays upright while the ring spins */
+  animation: spin-rev 44s linear infinite;
+}
+
+/* ---------- Cards ---------- */
+.tile {
+  border: 1px solid var(--color-line);
+  border-radius: 20px;
+  background: var(--color-panel);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-soft);
+  transition: color 0.2s, border-color 0.2s;
+}
+.chip:hover {
+  color: var(--color-lime);
+  border-color: rgba(217, 249, 157, 0.4);
+}
+
+/* Big card with a rotating lime border */
+.glow {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+  border-radius: 24px;
+  background: var(--color-line);
+}
+.glow-spin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(200%, 900px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(217, 249, 157, 0.75) 85%, transparent 100%);
+  animation: glow-rot 7s linear infinite;
+}
+.glow-in {
+  position: relative;
+  border-radius: 23px;
+  background: var(--color-panel);
+}
+
+/* Contact card with spotlight */
+.spot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+}
+
+/* ---------- Contact ---------- */
+.mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(217, 249, 157, 0.4);
+  background: rgba(217, 249, 157, 0.05);
+  color: var(--color-lime);
+  font-family: var(--font-mono);
+  font-size: clamp(17px, 2.4vw, 28px);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.mail:hover,
+.mail.is-ok {
+  background: var(--color-lime);
+  color: var(--color-lime-ink);
+  border-color: var(--color-lime);
+}
+
+.link-tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: rgba(9, 9, 11, 0.5);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.link-tile .arrow {
+  flex: none;
+  color: var(--color-mute);
+  transition: transform 0.25s, color 0.2s;
+}
+.link-tile:hover {
+  border-color: var(--color-lime);
+  background: rgba(217, 249, 157, 0.05);
+}
+.link-tile:hover .arrow {
+  color: var(--color-lime);
+  transform: translate(3px, -3px);
+}
+[dir="rtl"] .link-tile:hover .arrow {
+  transform: translate(-3px, -3px) scaleX(-1);
+}
+
+/* ---------- Work accordion ---------- */
+.row {
+  border-top: 1px solid var(--color-line);
+}
+.acc {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 4px;
+  text-align: start;
+  cursor: pointer;
+}
+.acc-title {
+  color: #52525b;
+  transition: color 0.25s;
+}
+.acc-title.is-on,
+.acc:hover .acc-title {
+  color: #fafafa;
+}
+.acc:hover .acc-title:not(.is-on) {
+  color: var(--color-lime);
+}
+.acc-ico {
+  flex: none;
+  color: var(--color-mute);
+  transition: transform 0.35s, color 0.2s;
+}
+.acc-ico.is-open {
+  transform: rotate(45deg);
+  color: var(--color-lime);
+}
+
+/* ---------- Code editor ---------- */
+.ed {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: #0c0c0f;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 60px rgba(217, 249, 157, 0.05);
+}
+.tab {
+  position: relative;
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-mute);
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+.tab:hover {
+  color: #e4e4e7;
+}
+.tab.is-on {
+  color: #fafafa;
+  background: var(--color-panel);
+}
+.code {
+  min-height: 300px;
+  padding: 22px 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.95;
+}
+.ln {
+  display: flex;
+  gap: 22px;
+  padding: 0 24px;
+  white-space: pre;
+}
+.ln-n {
+  width: 22px;
+  flex: none;
+  text-align: end;
+  color: #3f3f46;
+  user-select: none;
+}
+.kw { color: #f0abfc; }
+.pr { color: #93c5fd; }
+.st { color: #d9f99d; }
+.pu { color: #a1a1aa; }
+.nm { color: #fdba74; }
+.nv { color: #67e8f9; }
+.cm { color: #52525b; font-style: italic; }
+
+/* ---------- Hello band ---------- */
+.band-track {
+  animation: band 42s linear infinite;
+}
+.band:hover .band-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

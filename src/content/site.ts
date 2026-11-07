@@ -14,10 +14,10 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/sina-dev/",
 
   /** Put the file in /public (for example public/resume.pdf). */
-  resume: "/resume.pdf",
+  resume: "/MyResume(En).pdf",
 
   /** Put your photo in /public and set the path, for example "/sina.jpg". null shows the SK monogram. */
-  photo: null as string | null,
+  photo: "/profile.jpg" as string | null,
 
   timezone: "Asia/Tehran",
 
@@ -38,7 +38,7 @@ export const site = {
 
   /** Non-translated data for the project list, in the same order as the dictionary. */
   projects: [
-    { href: "#", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO" },
+    { href: "https://www.kiwitech.ir/", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO" },
     { href: "#", stack: "[Stack]" },
     { href: "#", stack: "[Stack]" },
   ],
