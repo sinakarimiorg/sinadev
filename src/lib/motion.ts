@@ -1,0 +1,2 @@
+/** Shared easing curve used across the site. */
+export const ease = [0.2, 0.7, 0.2, 1] as const;
