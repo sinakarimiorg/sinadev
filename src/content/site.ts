@@ -37,9 +37,9 @@ export const site = {
 
   /** Non-translated data for the project list, in the same order as the dictionary. */
   projects: [
-    { href: "#", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO", image: "/projects/kiwitech.png" as string | null },
-    { href: "#", stack: "JavaScript · React · Tailwind Css · RTL", image: "/projects/moboland.png" as string | null },
-    { href: "#", stack: "[Stack]", image: "/projects/coffee.png" as string | null },
+    { href: "https://www.kiwitech.ir/", stack: "Next.js 15 · TypeScript · Mongoose · RTL · SEO", image: "/projects/kiwitech.png" as string | null },
+    { href: "https://moboland.vercel.app/", stack: "JavaScript · React · Tailwind Css · RTL", image: "/projects/moboland.png" as string | null },
+    { href: "https://tailwind-coffee-ten.vercel.app/", stack: "[Stack]", image: "/projects/coffee.png" as string | null },
   ],
 
   /**

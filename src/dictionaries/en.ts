@@ -55,16 +55,19 @@ const en = {
         name: "KiwiTech",
         tag: "Next.js · Mongoose · RTL · SEO",
         desc: "Persian RTL e-commerce storefront with SEO, product pages and a Mongoose-backed API.",
+        href: "https://www.kiwitech.ir/"
       },
       {
         name: "Moboland",
         tag: "JavaScript · React · Tailwind Css",
         desc: "An online store as a practice project for peripheral products",
+        href: "https://moboland.vercel.app/"
       },
       {
         name: "Coffee Store",
         tag: "Html 5 · Css · JavaScript · Tailwind Css · mongoose",
         desc: "A practice project to strengthen styling skills and code cleanliness.",
+        href: "https://tailwind-coffee-ten.vercel.app/"
       },
     ],
   },

@@ -57,16 +57,19 @@ const tr: Dictionary = {
         name: "KiwiTech",
         tag: "Next.js · Mongoose · RTL · SEO",
         desc: "SEO, ürün sayfaları ve Mongoose destekli API ile Farsça RTL e-ticaret mağazası.",
+        href: "https://www.kiwitech.ir/"
       },
       {
         name: "Moboland",
         tag: "JavaScript · React · Tailwind Css",
         desc: "Yardımcı ürünler için çevrimiçi eğitim mağazası",
+        href: "https://moboland.vercel.app/"
       },
       {
         name: "Çevrimiçi kahve dükkanı",
         tag: "Html 5 · Css · JavaScript · Tailwind Css · mongoose",
         desc: "Stil ve kod temizliği becerilerini güçlendirmeye yönelik bir uygulama projesi.",
+        href: "https://tailwind-coffee-ten.vercel.app/"
       },
     ],
   },

@@ -90,7 +90,7 @@ export function Work({ t, locale }: { t: Dictionary["work"]; locale: Locale }) {
                             </span>
                           </p>
                         )}
-                        {project && project.href !== "#" && (
+                        {project && (
                           <a
                             href={project.href}
                             {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}

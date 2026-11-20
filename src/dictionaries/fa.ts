@@ -57,16 +57,19 @@ const fa: Dictionary = {
         name: "کیوی‌تک",
         tag: "React · Next.js · Mongoose · RTL · SEO",
         desc: "فروشگاه اینترنتی فارسی و راست‌چین با سئو، صفحات محصول و بک‌اند Mongoose.",
+        href: "https://www.kiwitech.ir/"
       },
       {
         name: "موبولند",
         tag: "JavaScript · React · Tailwind Css",
         desc: "فروشگاه اینترنتی تمرینی برای محصولات جانبی",
+        href: "https://moboland.vercel.app/"
       },
       {
         name: "فروشگاه قهوه",
         tag: "Html 5 · Css · JavaScript · Tailwind Css · mongoose",
         desc: "پروژه تمرینی برای تقویت مهارت های استایل دهی و تمیزی کد",
+        href: "https://tailwind-coffee-ten.vercel.app/"
       },
     ],
   },
